@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Yuhong Wang · 汪育弘 | Academic Homepage</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Inter + Orbitron (retro-futuristic) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0c0f0e;
+            background-image: 
+                linear-gradient(rgba(255, 140, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(163, 255, 0, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: #e6f0e6;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+        }
+
+        /* main container — dark glassmorphism with neon orange & green */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: rgba(10, 18, 16, 0.75);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 140, 0, 0.3);
+            border-radius: 28px;
+            box-shadow: 0 0 40px rgba(255, 100, 0, 0.15), 0 8px 20px rgba(0,0,0,0.6);
+            overflow: hidden;
+            padding: 2.2rem 2rem;
+            position: relative;
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, #ff8c00, #a3ff00, #ff8c00);
+            opacity: 0.8;
+        }
+
+        /* header */
+        .profile-header {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid rgba(255, 140, 0, 0.4);
+            padding-bottom: 1.8rem;
+        }
+
+        .name-title h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 500;
+            font-size: 2.8rem;
+            letter-spacing: -0.01em;
+            color: #ffffff;
+            text-shadow: 0 0 10px #ff8c00, 0 0 20px #a3ff00;
+            margin-bottom: 0.2rem;
+        }
+
+        .name-title .chinese-name {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: #ffb870;
+            margin-left: 1rem;
+            font-family: 'Inter', sans-serif;
+            text-shadow: 0 0 8px #ff8c00;
+        }
+
+        .subhead {
+            font-size: 1rem;
+            color: #c8e6c8;
+            margin-top: 0.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem 1.8rem;
+            align-items: baseline;
+        }
+
+        .subhead i {
+            margin-right: 6px;
+            color: #a3ff00;
+        }
+
+        .badge-orcid {
+            background: rgba(255, 140, 0, 0.1);
+            backdrop-filter: blur(4px);
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            border: 1px solid #ff8c00;
+            color: #ffe6c0;
+            font-weight: 500;
+        }
+
+        .badge-orcid a {
+            color: #f0dbb0;
+            text-decoration: none;
+        }
+
+        /* grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 2.2fr;
+            gap: 2.2rem;
+        }
+
+        /* left column cards */
+        .left-col {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+
+        .card {
+            background: rgba(12, 24, 20, 0.65);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 1.6rem 1.5rem;
+            border: 1px solid rgba(255, 140, 0, 0.3);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(163, 255, 0, 0.05);
+            transition: border 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            border-color: #a3ff00;
+            box-shadow: 0 0 25px rgba(163, 255, 0, 0.25), 0 8px 18px #00000080;
+        }
+
+        .card-title {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 500;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            margin-bottom: 1.2rem;
+            color: #a3ff00;
+            text-transform: uppercase;
+            border-left: 5px solid #ff8c00;
+            padding-left: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-shadow: 0 0 6px #a3ff00;
+        }
+
+        .card-title i {
+            color: #ff8c00;
+        }
+
+        /* avatar section */
+        .avatar-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .avatar-wrapper {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #1a2a1e, #0e1f14);
+            border: 2px solid #ff8c00;
+            box-shadow: 0 0 30px #ff8c0080, inset 0 0 15px #000000;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+            overflow: hidden;
+        }
+        .avatar-wrapper:hover {
+            border-color: #a3ff00;
+            box-shadow: 0 0 35px #a3ff00aa;
+        }
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .avatar-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            color: #9fcc9f;
+            font-size: 0.9rem;
+        }
+        .avatar-placeholder i {
+            font-size: 3.5rem;
+            margin-bottom: 5px;
+            color: #ff8c00;
+        }
+        .upload-control {
+            margin-top: 5px;
+            width: 100%;
+            text-align: center;
+        }
+        .admin-toggle {
+            background: transparent;
+            border: 1px solid #ff8c00;
+            color: #e0e0c0;
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+            transition: 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .admin-toggle:hover {
+            background: #ff8c0020;
+            border-color: #a3ff00;
+            color: #a3ff00;
+        }
+        .upload-area {
+            margin-top: 12px;
+            display: none;
+        }
+        .upload-area input {
+            color: #fff;
+            background: #142018;
+            border: 1px dashed #ff8c00;
+            padding: 6px;
+            border-radius: 12px;
+            width: 100%;
+        }
+        .admin-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .password-input {
+            background: #0e1c14;
+            border: 1px solid #a3ff00;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 20px;
+            outline: none;
+        }
+
+        /* contact */
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 0.9rem;
+            font-size: 0.95rem;
+            color: #d0ecd0;
+        }
+        .contact-item i {
+            width: 1.4rem;
+            color: #a3ff00;
+            margin-top: 3px;
+        }
+        .contact-item a {
+            color: #ffd89c;
+            text-decoration: none;
+            border-bottom: 1px dotted #ff8c00;
+        }
+
+        .edu-item .institution {
+            font-weight: 650;
+            font-size: 1.1rem;
+            color: #f0ffe0;
+        }
+        .edu-detail {
+            color: #b8d4b8;
+        }
+
+        .interest-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .interest-tag {
+            background: rgba(255, 140, 0, 0.08);
+            border: 1px solid #ff8c00;
+            color: #f0dbb0;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+        }
+
+        .peer-item {
+            font-size: 1rem;
+            font-weight: 500;
+            background: #0a1e12;
+            border-left: 5px solid #a3ff00;
+            padding: 0.6rem 1rem;
+            border-radius: 12px;
+            color: #e0f0d0;
+        }
+
+        /* right column */
+        .right-col {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+
+        .pub-list { list-style: none; }
+        .pub-item {
+            margin-bottom: 1.4rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed #3a6e3a;
+        }
+        .pub-title {
+            font-weight: 650;
+            font-size: 1.05rem;
+            color: #f0f8e0;
+        }
+        .pub-meta {
+            font-size: 0.9rem;
+            color: #bcd0b0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 15px;
+        }
+        .pub-link {
+            color: #a3ff00;
+            text-decoration: none;
+            border-bottom: 1px dotted #ff8c00;
+        }
+        .ssci-badge, .esci-badge {
+            background: #ff8c0020;
+            border: 1px solid #ff8c00;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #ffb56b;
+        }
+
+        .conference-card {
+            background: rgba(255, 140, 0, 0.05);
+            border: 1px solid #a3ff00;
+            border-left: 8px solid #ff8c00;
+            border-radius: 18px;
+            padding: 1.2rem 1.4rem;
+        }
+
+        .exp-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+        .exp-title { font-weight: 700; color: #e2f0c0; }
+        .exp-org { color: #a3ff00; font-weight: 500; }
+        .exp-date {
+            background: #102010;
+            padding: 2px 12px;
+            border-radius: 30px;
+            border: 1px solid #ff8c00;
+            color: #c0d6a0;
+        }
+        .exp-desc ul { list-style: none; }
+        .exp-desc li {
+            display: flex;
+            gap: 10px;
+            color: #c8e0c0;
+            margin-bottom: 6px;
+        }
+        .exp-desc li i { color: #ff8c00; }
+
+        .footer-note {
+            margin-top: 2rem;
+            text-align: right;
+            border-top: 1px solid #2a5a2a;
+            padding-top: 1.2rem;
+            color: #9fcc9f;
+        }
+
+        /* responsive */
+        @media (max-width: 780px) {
+            .main-grid { grid-template-columns: 1fr; }
+            .name-title h1 { font-size: 2.2rem; }
+        }
+
+        /* misc */
+        a:hover { color: #a3ff00; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- HEADER -->
+    <div class="profile-header">
+        <div class="name-title">
+            <h1>
+                Yuhong Wang
+                <span class="chinese-name">汪育弘</span>
+            </h1>
+        </div>
+        <div class="subhead">
+            <span><i class="fas fa-map-pin"></i>Beijing, Changping · Beinan Rd</span>
+            <span><i class="fas fa-graduation-cap"></i>BA English Language & Literature</span>
+            <span class="badge-orcid"><i class="fab fa-orcid"></i> <a href="https://orcid.org/0009-0006-0498-5777" target="_blank">0009-0006-0498-5777</a></span>
+        </div>
+    </div>
+
+    <!-- MAIN GRID -->
+    <div class="main-grid">
+        <!-- LEFT COLUMN -->
+        <div class="left-col">
+            <!-- Avatar card with upload (admin only) -->
+            <div class="card">
+                <div class="card-title"><i class="fas fa-user-astronaut"></i> Avatar</div>
+                <div class="avatar-section">
+                    <div class="avatar-wrapper" id="avatarWrapper" title="Click to change avatar (admin required)">
+                        <img id="avatarImage" class="avatar-img" src="" alt="avatar" style="display: none;">
+                        <div id="avatarPlaceholder" class="avatar-placeholder">
+                            <i class="fas fa-user-circle"></i>
+                            <span>YH</span>
+                        </div>
+                    </div>
+                    <div class="upload-control">
+                        <button class="admin-toggle" id="showAdminBtn"><i class="fas fa-lock"></i> Admin Upload</button>
+                    </div>
+                    <div id="adminUploadPanel" class="upload-area">
+                        <div class="admin-panel">
+                            <input type="password" id="adminPass" class="password-input" placeholder="Enter password (2026)" />
+                            <input type="file" id="avatarUpload" accept="image/*" style="display: none;" disabled>
+                            <button id="unlockUploadBtn" class="admin-toggle" style="width:100%;"><i class="fas fa-key"></i> Verify & Upload</button>
+                            <small style="color:#b0d0a0;">Authorized personnel only</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="card">
+                <div class="card-title"><i class="fas fa-address-card"></i> Contact</div>
+                <div class="contact-item"><i class="fas fa-mobile-alt"></i>+86 133 6769 6568</div>
+                <div class="contact-item"><i class="far fa-envelope"></i><a href="mailto:13367696568@163.com">13367696568@163.com</a></div>
+                <div class="contact-item"><i class="fas fa-location-dot"></i>No.2 Beinan Rd, Changping, Beijing, 102206</div>
+                <div class="contact-item"><i class="fab fa-orcid"></i><a href="https://orcid.org/0009-0006-0498-5777" target="_blank">orcid.org/0009-0006-0498-5777</a></div>
+            </div>
+
+            <!-- Education (average score removed) -->
+            <div class="card">
+                <div class="card-title"><i class="fas fa-university"></i> Education</div>
+                <div class="edu-item">
+                    <div class="institution">North China Electric Power University</div>
+                    <div class="edu-detail">
+                        BA in English Language and Literature<br>
+                        <span><i class="far fa-calendar-alt"></i> 2024.9 – Present · Beijing</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Research Interests -->
+            <div class="card">
+                <div class="card-title"><i class="fas fa-brain"></i> Research Interests</div>
+                <div class="interest-tags">
+                    <span class="interest-tag">Psychoanalysis</span>
+                    <span class="interest-tag">Philosophy of Mind</span>
+                    <span class="interest-tag">Philosophy of AI</span>
+                    <span class="interest-tag">Lacanian Theory</span>
+                    <span class="interest-tag">LLM & Cognition</span>
+                </div>
+            </div>
+
+            <!-- Peer Review -->
+            <div class="card">
+                <div class="card-title"><i class="fas fa-check-double"></i> Peer Review</div>
+                <div class="peer-item"><i class="fas fa-book-open"></i> Psychoanalysis, Culture & Society (ESCI)</div>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="right-col">
+            <!-- Publications -->
+            <div class="card">
+                <div class="card-title"><i class="fas fa-file-alt"></i> Main Publications</div>
+                <ul class="pub-list">
+                    <li class="pub-item">
+                        <div class="pub-title">Large Language Model Hallucination and Transference: As a Supplement</div>
+                        <div class="pub-meta"><span><i class="far fa-calendar"></i> Apr 2026</span><span>Philosophy & Technology 39(2)</span><span>ISSN:2210-5441</span></div>
+                        <a class="pub-link" href="https://doi.org/10.1007/s13347-026-01088-3" target="_blank">DOI: 10.1007/s13347-026-01088-3</a>
+                    </li>
+                    <li class="pub-item">
+                        <div class="pub-title">Large Language Models and the Risk of Social Withdrawal</div>
+                        <div class="pub-meta"><span><i class="far fa-calendar"></i> Mar 2026</span><span>Int J Soc Psychiatry</span><span class="ssci-badge">SSCI</span></div>
+                        <a class="pub-link" href="https://doi.org/10.1177/002076402461438826" target="_blank">DOI: 10.1177/002076402461438826</a>
+                    </li>
+                    <li class="pub-item">
+                        <div class="pub-title">Desire and Emptiness: Diamond Sutra & Lacan</div>
+                        <div class="pub-meta"><span>Dec 2025</span><span>Philosophies 10(6),131</span><span class="esci-badge">ESCI</span></div>
+                        <a class="pub-link" href="https://doi.org/10.3390/philosophies10060131" target="_blank">DOI: 10.3390/philosophies10060131</a>
+                    </li>
+                    <li class="pub-item">
+                        <div class="pub-title">Deviation of DeepSeek's Reasoning Path (Lacanian Perspective)</div>
+                        <div class="pub-meta">Science (E-letter) 2025</div>
+                        <a class="pub-link" href="https://www.science.org/doi/10.1126/science.adw5211#eletterSection" target="_blank">science.org/doi/10.1126/science.adw5211#eletterSection</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Conference -->
+            <div class="conference-card">
+                <div style="display: flex; gap: 12px; align-items: center;">
+                    <i class="fas fa-microchip" style="font-size: 2rem; color:#a3ff00;"></i>
+                    <div>
+                        <div style="font-weight: 700; font-size:1.1rem; color:#f0f8e0;">6th Intl Conf. on Philosophy of Mind: AI (6ICPIH)</div>
+                        <div style="color:#b0d8a0;">Abstract accepted · May 4</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience -->
+            <div class="card">
+                <div class="card-title"><i class="fas fa-briefcase"></i> Experience</div>
+                <div class="exp-item">
+                    <div class="exp-header"><span class="exp-title">Campus Representative</span><span class="exp-date">Sep 2025–</span></div>
+                    <div class="exp-org">Weibo Campus · NCEPU</div>
+                    <div class="exp-desc"><ul><li><i class="fas fa-chevron-right"></i>Coordinate activities and communication between Weibo and NCEPU.</li><li><i class="fas fa-chevron-right"></i>Lead development of Weibo Campus brand activities.</li></ul></div>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-header"><span class="exp-title">Head of Sci-Tech Dept.</span><span class="exp-date">Oct 2025–</span></div>
+                    <div class="exp-org">Student Union, School of Foreign Languages</div>
+                    <div class="exp-desc"><ul><li><i class="fas fa-chevron-right"></i>Manage ~20 project teams, organize progress reports and experience-sharing.</li><li><i class="fas fa-chevron-right"></i>Design posters/videos to increase event visibility.</li></ul></div>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-header"><span class="exp-title">Head of Weibo Dept.</span><span class="exp-date">Jun 2025–</span></div>
+                    <div class="exp-org">NCEPU Integrated Media Student Press Corps</div>
+                    <div class="exp-desc"><ul><li><i class="fas fa-chevron-right"></i>Manage official Weibo account, enhance engagement and campus image.</li></ul></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-note">
+        <i class="far fa-edit"></i> Yuhong Wang · Cyber-Academic Homepage
+    </div>
+</div>
+
+<script>
+    (function() {
+        const ADMIN_PASS = '2026';
+        const avatarImg = document.getElementById('avatarImage');
+        const placeholder = document.getElementById('avatarPlaceholder');
+        const fileInput = document.getElementById('avatarUpload');
+        const unlockBtn = document.getElementById('unlockUploadBtn');
+        const passInput = document.getElementById('adminPass');
+        const adminPanel = document.getElementById('adminUploadPanel');
+        const showAdminBtn = document.getElementById('showAdminBtn');
+        const avatarWrapper = document.getElementById('avatarWrapper');
+
+        // Toggle upload panel
+        showAdminBtn.addEventListener('click', () => {
+            adminPanel.style.display = adminPanel.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Verify password and trigger file selection
+        unlockBtn.addEventListener('click', () => {
+            if (passInput.value === ADMIN_PASS) {
+                fileInput.disabled = false;
+                fileInput.click();
+            } else {
+                alert('Incorrect password. Access denied.');
+            }
+        });
+
+        // Handle file selection
+        fileInput.addEventListener('change', (e) => {
+            const file = fileInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    avatarImg.src = event.target.result;
+                    avatarImg.style.display = 'block';
+                    placeholder.style.display = 'none';
+                    localStorage.setItem('yuhong_avatar', event.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+            passInput.value = '';
+            fileInput.disabled = true;
+            adminPanel.style.display = 'none';
+        });
+
+        // Click on avatar wrapper toggles panel (convenience)
+        avatarWrapper.addEventListener('click', (e) => {
+            if (e.target.closest('button') || e.target.closest('input')) return;
+            adminPanel.style.display = adminPanel.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Load saved avatar
+        const savedAvatar = localStorage.getItem('yuhong_avatar');
+        if (savedAvatar) {
+            avatarImg.src = savedAvatar;
+            avatarImg.style.display = 'block';
+            placeholder.style.display = 'none';
+        }
+
+        // Enter key in password field triggers verification
+        passInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                unlockBtn.click();
+            }
+        });
+    })();
+</script>
+</body>
+</html>
